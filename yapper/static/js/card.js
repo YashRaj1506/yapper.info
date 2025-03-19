@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const username = document.getElementById('username').textContent;
   const score = document.getElementById('yapper-score').textContent;
   const tweetText = `I just got a Yapper Score of ${score}! How much of a yapper are you on Twitter? #YapperScore`;
+  const websiteUrl = "yapperkai.pythonanywhere.com";
   
   // Handle profile image for better rendering
   const profileImage = document.getElementById('profile-image');
@@ -110,7 +111,8 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // After a small delay, open Twitter with pre-filled text
       setTimeout(function() {
-        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`;
+        // Construct the Twitter share URL with text and website URL as separate parameters
+        const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=https://${encodeURIComponent(websiteUrl)}`;
         window.open(twitterUrl, '_blank');
       }, 500);
     } catch (error) {

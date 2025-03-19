@@ -13,6 +13,39 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 20px;
+  position: relative;
+  margin: 0;
+}
+
+/* Social Icons */
+.social-corner {
+  position: static;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 0 auto 25px;
+  padding-top: 10px;
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #333;
+  font-size: 20px;
+  transition: all 0.3s ease;
+  border: 1px solid #333;
+}
+
+.social-icon:hover {
+  background-color: #333;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -24,7 +57,7 @@ body {
 .logo {
   font-size: 24px;
   font-weight: 800;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   letter-spacing: -0.5px;
 }
 
@@ -172,5 +205,16 @@ h2, h3 {
   .profile-pic {
     margin-right: 0;
     margin-bottom: 15px;
+  }
+  
+  .social-corner {
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .social-icon {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
   }
 }
