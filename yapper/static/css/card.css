@@ -22,7 +22,7 @@
   
       .result-card {
         background: linear-gradient(135deg, #24292e 0%, #111 100%);
-        border-radius: 16px;
+        border-radius: 16px !important;
         padding: 25px;
         color: white;
         position: relative;
@@ -31,6 +31,7 @@
         transform-style: preserve-3d;
         transition: all 0.5s ease;
         aspect-ratio: 1.6 / 1;
+        -webkit-mask-image: -webkit-radial-gradient(white, black);
       }
   
       .card-chip {
@@ -161,6 +162,8 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        transform: translateZ(0);
+        backface-visibility: hidden;
       }
   
       .profile-pic-placeholder {
@@ -223,6 +226,51 @@
         opacity: 0.6;
         letter-spacing: 0.5px;
         font-family: monospace;
+      }
+  
+      /* Action Buttons */
+      .action-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 40px;
+      }
+  
+      .action-btn {
+        background-color: #1DA1F2;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+  
+      .action-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+  
+      .download-btn {
+        background-color: #000;
+      }
+  
+      .back-btn {
+        background-color: #666;
+        margin: 20px auto 0;
+        display: block;
+        width: fit-content;
+      }
+  
+      .btn-icon {
+        margin-right: 8px;
+        width: 20px;
+        height: 20px;
       }
   
       @media (max-width: 480px) {
