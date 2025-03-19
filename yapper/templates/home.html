@@ -1,0 +1,117 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yapper Score Finder</title>
+  <link rel="stylesheet" href="{% static 'css/main.css' %}?v=1">
+  <!-- <style>
+    .loading-message {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      text-align: center;
+      font-weight: 600;
+      color: #333;
+      animation: pulse 1.5s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 0.6; }
+      50% { opacity: 1; }
+      100% { opacity: 0.6; }
+    }
+    
+    .result-container {
+      margin-top: 30px;
+      background-color: white;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      text-align: center;
+    }
+    
+    .profile-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+      justify-content: center;
+    }
+    
+    .profile-pic {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+      border: 3px solid #f0f0f0;
+    }
+    
+    .score-value {
+      font-size: 72px;
+      font-weight: 800;
+      margin: 20px 0;
+      color: #000;
+    }
+  </style> -->
+</head>
+<body>
+  <div class="container">
+    <div class="logo">YapperScore</div>
+    <h1>Find Out How Big of a Yapper You Are</h1>
+    <p>Our AI analyzes your Twitter activity and assigns you a Yapper Score from 0 to 100 based on your tweet frequency, engagement, and content style.</p>
+    
+    {% if not score %}
+    <form id="yapper-form" action="{% url 'homepage' %}" method="POST">
+    {% csrf_token %}
+    <div class="input-container">
+      <span class="at-symbol">@</span>
+      <input type="text" id="username" name="username" placeholder="Enter your Twitter username" aria-label="Twitter username">
+    </div>
+    
+    <button id="submit-btn">Calculate My Yapper Score</button>
+    
+    <div id="loading-message" class="loading-message">
+      🔥 Wait, we are cooking! This may take 1 min max...
+    </div>
+    </form>
+    {% else %}
+    <!-- Display the results -->
+    <div class="result-container">
+      <div class="profile-header">
+        {% if profile_pic_url %}
+        <img src="{{ profile_pic_url }}" alt="{{ username }}'s profile picture" class="profile-pic">
+        {% endif %}
+        <div>
+          <h2>@{{ username }}</h2>
+        </div>
+      </div>
+      
+      <h3>Your Yapper Score</h3>
+      <div class="score-value">{{ score }}</div>
+      
+      <p>This is how much of a yapper you are on Twitter!</p>
+      
+      <a href="{% url 'homepage' %}" class="try-again">Try another username</a>
+    </div>
+    {% endif %}
+    
+  </div>
+
+  <!-- <script>
+    document.getElementById('yapper-form')?.addEventListener('submit', function() {
+      // Show loading message
+      document.getElementById('loading-message').style.display = 'block';
+      
+      // Disable submit button to prevent multiple submissions
+      document.getElementById('submit-btn').disabled = true;
+      document.getElementById('submit-btn').innerHTML = 'Calculating...';
+    });
+  </script> -->
+  <script src="{% static 'js/main.js' %}" defer></script>
+</body>
+</html>

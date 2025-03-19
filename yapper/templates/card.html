@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Yapper Score</title>
+  <link rel="stylesheet" href="{% static 'css/card.css' %}?v=1">
+  <style>
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card-wrapper">
+      <!-- Credit Card Style Front -->
+      <div class="result-card">
+        <div class="card-pattern"></div>
+        
+        <div class="card-chip">
+          <div class="chip-line"></div>
+          <div class="chip-line"></div>
+          <div class="chip-line"></div>
+          <div class="chip-line"></div>
+        </div>
+        
+        <div class="card-logo">
+          <div class="logo-icon">Y</div>
+          YapperScore
+        </div>
+        
+        <div class="card-content">
+          <div class="profile-pic-container">
+            {% if profile_pic_url %}
+              <img id="profile-image" src="{{ profile_pic_url }}" alt="{{ username }}'s profile" class="profile-pic">
+            {% else %}
+              <div class="profile-pic-placeholder">profile</div>
+            {% endif %}
+          </div>
+          
+          <div class="card-details">
+            <div class="card-label">Username</div>
+            <div class="username">@<span id="username">{{ username }}</span></div>
+            
+            <div class="score-row">
+              <div class="score-value" id="yapper-score">{{ score }}</div>
+              <div class="score-label">yapper<br>score</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card-footer">
+          VALID THRU: TODAY
+        </div>
+        
+        <div class="card-hologram"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Share button functionality
+      function copyToClipboard(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        alert('Share text copied to clipboard!');
+      }
+    });
+  </script> -->
+</body>
+</html>
