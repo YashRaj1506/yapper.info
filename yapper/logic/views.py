@@ -12,12 +12,20 @@ def home(request):
         
         # Extract tweets and profile pic URL from the result
         tweets = result["tweets"]
+        for i in tweets:
+            print(i)
 
         if tweets == []:
             context = {
                 'message': 'You are not eligible for a Yapper Card'
             }
-            return render(request, 'home.html', context)
+
+            request.session['context'] = {
+                'message': 'You are not eligible for a Yapper Card'
+            }
+
+
+            return redirect('cardpage')
         
         profile_pic_url = result["profile_pic_url"]
         

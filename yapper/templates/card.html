@@ -6,11 +6,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Your Yapper Score</title>
-  <link rel="stylesheet" href="{% static 'css/card.css' %}?v=5">
+  <link rel="stylesheet" href="{% static 'css/card.css' %}?v=8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
 </head>
 <body>
   <div class="container">
     <div class="card-wrapper">
+      {% if message == "You are not eligible for a Yapper Card" %}
+      <!-- Not Eligible Message -->
+      <div class="not-eligible-card">
+        <div class="not-eligible-icon">❌</div>
+        <h2>Not Eligible for Yapper Score</h2>
+        <p>Sorry, we couldn't generate a Yapper Score for @{{ username }}.</p>
+        <p class="not-eligible-reason">This account doesn't have enough tweets for us to analyze.</p>
+        <a href="{% url 'homepage' %}" class="action-btn back-btn">
+          Try Another Username
+        </a>
+      </div>
+      
+      <!-- Disclaimer text -->
+      <div class="disclaimer-text">
+        There might be moments when because of lots of reposting and other reasons, it's hard for us to figure out a score. We will cover all these cases in the next version.
+      </div>
+      {% else %}
+      <!-- Card delivery heading -->
+      <h1 class="card-delivery-heading">Here is your Yapper Card delivery</h1>
+      
       <!-- Credit Card Style Front -->
       <div class="result-card" id="yapper-card">
         <div class="card-pattern"></div>
@@ -73,10 +94,13 @@
       <a href="{% url 'homepage' %}" class="action-btn back-btn">
         Try Another Username
       </a>
+      {% endif %}
     </div>
   </div>
 
-  <!-- Include the JavaScript file -->
+  <!-- Include the JavaScript file only if eligible -->
+  {% if message != "You are not eligible for a Yapper Card" %}
   <script src="{% static 'js/card.js' %}?v=7"></script>
+  {% endif %}
 </body>
 </html>
