@@ -9,7 +9,7 @@
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
   <title>Your Yapper Score</title>
-  <link rel="stylesheet" href="{% static 'css/card.css' %}?v=20">
+  <link rel="stylesheet" href="{% static 'css/card.css' %}?v=8">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
 </head>
 <body>
@@ -21,7 +21,7 @@
         <div class="not-eligible-icon">❌</div>
         <h2>Not Eligible for Yapper Score</h2>
         <p>Sorry, we couldn't generate a Yapper Score for @{{ username }}.</p>
-        <p class="not-eligible-reason">This account doesn't have enough tweets for us to analyze.</p>
+        <p class="not-eligible-reason">Twitter makes it hard for us to extract data for some profiles. We are sorry for the inconvenience.</p>
         <a href="{% url 'homepage' %}" class="action-btn back-btn">
           Try Another Username
         </a>
@@ -103,7 +103,7 @@
 
   <!-- Include the JavaScript file only if eligible -->
   {% if message != "You are not eligible for a Yapper Card" %}
-  <script src="{% static 'js/card.js' %}?v=20"></script>
+  <script src="{% static 'js/card.js' %}?v=7"></script>
   {% endif %}
 </body>
 </html>

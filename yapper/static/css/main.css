@@ -48,6 +48,33 @@ body {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+/* GitHub Button */
+.github-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 30px;
+  background-color: transparent;
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: 1px solid #333;
+}
+
+.github-button i {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+.github-button:hover {
+  background-color: #333;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
 .container {
   width: 100%;
   max-width: 600px;
@@ -210,6 +237,8 @@ h2, h3 {
   .social-corner {
     gap: 15px;
     margin-bottom: 20px;
+    flex-direction: column;
+    align-items: center;
   }
   
   .social-icon {
@@ -217,35 +246,13 @@ h2, h3 {
     height: 36px;
     font-size: 18px;
   }
-}
-
-/* GitHub Repository Link */
-.github-repo-link {
-  margin-top: 50px;
-  margin-bottom: 20px;
-}
-
-.github-button {
-  display: inline-flex;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #24292e;
-  color: white;
-  text-decoration: none;
-  border-radius: 30px;
-  font-size: 16px;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.github-button i {
-  font-size: 20px;
-  margin-right: 8px;
-}
-
-.github-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
-  background-color: #000;
+  
+  .github-button {
+    font-size: 14px;
+    padding: 6px 14px;
+  }
+  
+  .github-button i {
+    font-size: 16px;
+  }
 }

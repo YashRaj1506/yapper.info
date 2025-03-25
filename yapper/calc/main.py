@@ -154,7 +154,7 @@ def extract_tweets(url, max_tweets=15):
 
 
 # if __name__ == "__main__":
-#     result = extract_tweets("https://x.com/version0chiro")
+#     result = extract_tweets("https://x.com/GThakaran")
 #     cleaned_tweets = clean_tweets(result["tweets"])
 #     print(f"Profile pic: {result['profile_pic_url']}")
 #     print(f"Yapper score: {yapper_score(cleaned_tweets)}")

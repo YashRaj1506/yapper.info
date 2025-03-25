@@ -17,11 +17,13 @@ def home(request):
 
         if tweets == []:
             context = {
-                'message': 'You are not eligible for a Yapper Card'
+                'message': 'You are not eligible for a Yapper Card',
+                'username': username
             }
 
             request.session['context'] = {
-                'message': 'You are not eligible for a Yapper Card'
+                'message': 'You are not eligible for a Yapper Card',
+                'username': username
             }
 
 

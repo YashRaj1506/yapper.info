@@ -36,6 +36,10 @@ def lexical_richness(text):
 
 def yapper_score(sentences):
     """Calculates the Yapper Score based on multiple factors."""
+    # Check for empty sentences list
+    if not sentences:
+        return 0  # Return a zero score when no tweets are available
+        
     total_words = sum(word_count(preprocess_text(sent)) for sent in sentences)
     total_sentences = sum(sentence_count(preprocess_text(sent)) for sent in sentences)
     avg_repetitiveness = sum(repetitiveness_score(preprocess_text(sent)) for sent in sentences) / len(sentences)
